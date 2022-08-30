@@ -6,16 +6,21 @@ interface HomeProps {
   navigation: any;
 }
 
+const fakeData = [
+  { id: 1, productName: "dell" },
+  { id: 2, productName: "lenovo" },
+  { id: 3, productName: "acer" },
+  { id: 4, productName: "apple" },
+  { id: 5, productName: "itautec" },
+];
+
 export default function Home({ navigation }: HomeProps) {
   const handleNavigate = () => {
     navigation.navigate(ScreenNames.Details);
   };
 
-  const handleNavigateParams = () => {
-    navigation.navigate(ScreenNames.Details, {
-      id: 123,
-      productName: "Computer",
-    });
+  const handleNavigateParams = (computer: any) => {
+    navigation.navigate(ScreenNames.Details, computer);
   };
 
   return (
@@ -23,7 +28,10 @@ export default function Home({ navigation }: HomeProps) {
       <Text>Home</Text>
 
       <Button title="Go to Details" onPress={handleNavigate} />
-      <Button title="Go to Details w/ Params" onPress={handleNavigateParams} />
+
+      {fakeData.map((c) => (
+        <Button title={c.productName} onPress={() => handleNavigateParams(c)} />
+      ))}
     </View>
   );
 }

@@ -6,11 +6,13 @@ interface DetailsProps {
 }
 
 export default function Details({ route }: DetailsProps) {
-  console.log("params:", route.params);
+  const computer = route.params;
+
+  console.log("params:", computer);
 
   return (
     <View style={styles.container}>
-      <Text>Details</Text>
+      <Text>Details - buscar no banco tudo de: {JSON.stringify(computer)}</Text>
     </View>
   );
 }
