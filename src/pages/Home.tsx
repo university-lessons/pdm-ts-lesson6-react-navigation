@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, StatusBar, Button } from "react-native";
 import React from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { ScreenNames } from "../Router";
 
 interface HomeProps {
